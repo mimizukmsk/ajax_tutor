@@ -13,10 +13,18 @@
     <h1>My Photos</h1>
   </header>
   <div class="container">
-    <div id="img_unit"></div>
+    <div id="img_unit">
+      <div class="photo" v-for="Photo in Photos">
+        <img :src="Photo.path">
+        <div class="inner">
+          <p>{{ Photo.caption }}<span>{{ Photo.name }}</span></p>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- ↑ container -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/jquery-ajax.js"></script>
+  <script src="js/vue-ajax.js"></script>
 </body>
 </html>
