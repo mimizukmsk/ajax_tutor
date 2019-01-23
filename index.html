@@ -13,14 +13,7 @@
     <h1>My Photos</h1>
   </header>
   <div class="container">
-    <div id="img_unit">
-      <div class="photo">
-        <img src="img/img01.jpg">
-        <div class="inner">
-          <p>こっちは貫禄ありすぎ<span>sansaisan</span></p>
-        </div>
-      </div>
-    </div>
+    <div id="img_unit"></div>
   </div>
   <!-- ↑ container -->
   <script>
@@ -42,7 +35,21 @@
       },
     ];
 
-    alert(images[0].caption)
+    for (let i=0; i<images.length; i++) {
+      const img = document.createElement('img');
+      img.setAttribute('src', images[i].path);
+
+      const caption = document.createElement('div');
+      caption.className = 'inner';
+      caption.innerHTML = '<p>' + images[i].caption + '<span>' + images[i].name + '</span></p>';
+
+      const div = document.createElement('div');
+      div.className = 'photo';
+      div.appendChild(img);
+      div.appendChild(caption);
+
+      document.getElementById('img_unit').appendChild(div);
+    }
   </script>
 </body>
 </html>
